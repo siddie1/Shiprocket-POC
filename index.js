@@ -1,3 +1,4 @@
+require("dotenv").config({ path: __dirname + "/.env" });
 const express = require("express");
 const authRoutes = require("./routes/authRoutes");
 const orderRoutes = require("./routes/orderRoutes");
@@ -7,12 +8,10 @@ const { errorHandler } = require("./middlewares/errorMiddleware");
 const app = express();
 app.use(express.json());
 
-// Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/shipments", shipmentRoutes);
 
-// Error Middleware
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;
