@@ -19,6 +19,7 @@ async function getAuthToken() {
       }
     );
 
+    //cachedToken = AUTHENTICATION_TOKEN;
     cachedToken = response.data.token;
     tokenExpiry = new Date(Date.now() + 8 * 24 * 60 * 60 * 1000); //8 days expiry
 
